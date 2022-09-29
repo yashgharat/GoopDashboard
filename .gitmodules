@@ -1,0 +1,3 @@
+[submodule "no_screen_test/RGBMatrixEmulator"]
+	path = no_screen_test/RGBMatrixEmulator
+	url = https://github.com/ty-porter/RGBMatrixEmulator
