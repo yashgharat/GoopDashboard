@@ -5,7 +5,8 @@ import sys
 
 import spotify_player_dev
 import home_screen_dev
-import goop_screen_dev
+import pet_screen_dev
+import weather_screen_dev
 from RGBMatrixEmulator import RGBMatrix, RGBMatrixOptions
 
 def main():
@@ -19,24 +20,27 @@ def main():
     options.cols=64
     options.pwm_lsb_nanoseconds = 80
     options.limit_refresh_rate_hz = 150
+    # options.pixel_style = 'square'
     matrix = RGBMatrix(options = options)
 
-    player = spotify_player_dev.SpotifyScreen(config)
     home = home_screen_dev.HomeScreen()
-    goop = goop_screen_dev.GoopScreen()
+    player = spotify_player_dev.SpotifyScreen(config)
+    pet = pet_screen_dev.PetScreen()
+    weather = weather_screen_dev.WeatherScreen()
 
     try:
         print("Press CTRL-C to stop.")
         while True:
-            frame = player.generate()
-            # frame = goop.generate()
             # frame = home.generate()
+            # frame = player.generate()
+            frame = weather.generate()
+            # frame = pet.generate()
 
             if frame is None:
-                frame = goop.generate()
+                frame = pet.generate()
             
             matrix.SetImage(frame)
-            time.sleep(0.05)
+            time.sleep(0.1)
     except KeyboardInterrupt:
         sys.exit(0)
 
