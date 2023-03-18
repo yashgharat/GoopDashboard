@@ -1,7 +1,8 @@
-import configparser
-import requests
-import time
 import sys
+import time
+import requests
+import configparser
+
 
 import spotify_player_dev
 import home_screen_dev
@@ -27,17 +28,25 @@ def main():
     player = spotify_player_dev.SpotifyScreen(config)
     pet = pet_screen_dev.PetScreen()
     weather = weather_screen_dev.WeatherScreen()
+    
+    cur_frame = 0
+    timer = 0
 
     try:
         print("Press CTRL-C to stop.")
         while True:
-            # frame = home.generate()
+            frames = [home, player, weather, pet]
+            timer += 1
+            if timer >= 300:
+                timer = 0
+                cur_frame = (cur_frame + 1) % len(frames)
+            frame = frames[cur_frame].generate()
             # frame = player.generate()
-            frame = weather.generate()
+            # frame = weather.generate()
             # frame = pet.generate()
 
             if frame is None:
-                frame = pet.generate()
+                frame = home.generate()
             
             matrix.SetImage(frame)
             time.sleep(0.1)

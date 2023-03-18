@@ -1,0 +1,35 @@
+{
+  "FeelsLikeC": "2",
+  "FeelsLikeF": "36",
+  "cloudcover": "75",
+  "humidity": "53",
+  "localObsDateTime": "2023-03-18 08:21 AM",
+  "observation_time": "12:21 PM",
+  "precipInches": "0.0",
+  "precipMM": "0.0",
+  "pressure": "1007",
+  "pressureInches": "30",
+  "temp_C": "6",
+  "temp_F": "43",
+  "uvIndex": "1",
+  "visibility": "16",
+  "visibilityMiles": "9",
+  "weatherCode": "116",
+  "weatherDesc": [
+    {
+      "value": "Partly cloudy"
+    }
+  ],
+  "weatherIconUrl": [
+    {
+      "value": ""
+    }
+  ],
+  "winddir16Point": "W",
+  "winddirDegree": "270",
+  "windspeedKmph": "9",
+  "windspeedMiles": "6",
+  "sunset": "07:06 PM",
+  "sunrise": "07:03 AM",
+  "location": "New York"
+}
