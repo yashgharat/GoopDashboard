@@ -11,6 +11,7 @@ white = (230,255,255)
 
 class HomeScreen():
     def __init__(self):
+        self.days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
         self.font = ImageFont.truetype("../fonts/tiny.otf", 5)
         self.canvas_width = 64
         self.canvas_height = 32
@@ -32,7 +33,7 @@ class HomeScreen():
         currentTime = datetime.now(tz=tz.tzlocal())
         month = currentTime.month
         day = currentTime.day
-        dayOfWeek = currentTime.weekday() + 1
+        dayOfWeek = self.days[currentTime.weekday()]
         hours = currentTime.hour
         if not self.use_24_hour:
             hours = hours % 12
@@ -46,22 +47,12 @@ class HomeScreen():
         draw.text((3, 6), padToTwoDigit(hours), light_pink, font=self.font)
         draw.text((10, 6), ":", light_pink, font=self.font)
         draw.text((13, 6), padToTwoDigit(minutes), light_pink, font=self.font)
-        
-        if (self.on_cycle):
-            #date
-            draw.text((23, 6), padToTwoDigit(month), dark_pink, font=self.font)
-            draw.text((30, 6), ".", dark_pink, font=self.font)
-            draw.text((33, 6), padToTwoDigit(day), dark_pink, font=self.font)
-        else:
-            #dayOfWeek
-            draw.text((23, 6), padToTwoDigit(dayOfWeek), dark_pink, font=self.font)
-            # #weather
-            # weather = self.modules['weather']
-            # one_call = weather.getWeather()
-            # if (one_call != None):
-            #     curr_temp = round(one_call.current.temperature('fahrenheit')['temp'])
-            #     draw.text((33, 6), padToTwoDigit(curr_temp), white, font=self.font)
-            #     draw.point((41,6), fill=white)
+
+        draw.text((23, 6), padToTwoDigit(month), dark_pink, font=self.font)
+        draw.text((30, 6), ".", dark_pink, font=self.font)
+        draw.text((33, 6), padToTwoDigit(day), dark_pink, font=self.font)
+
+        draw.text((18, 12), dayOfWeek, dark_pink, font=self.font)
         
         return frame
         

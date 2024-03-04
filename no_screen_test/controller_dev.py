@@ -35,13 +35,16 @@ def main():
     try:
         print("Press CTRL-C to stop.")
         while True:
-            frames = [home, player, weather, pet]
+            frames = [home, player, weather]
             timer += 1
-            if timer >= 300:
+            if timer >= 100:
                 timer = 0
                 cur_frame = (cur_frame + 1) % len(frames)
-            frame = frames[cur_frame].generate()
-            # frame = player.generate()
+                print(frame, timer)
+            # frame = frames[cur_frame].generate()
+
+            # frame = home.generate()
+            frame = player.generate()
             # frame = weather.generate()
             # frame = pet.generate()
 

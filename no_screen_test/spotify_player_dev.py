@@ -57,36 +57,36 @@ class SpotifyScreen:
             frame = Image.new("RGB", (self.canvas_width, self.canvas_height), (0,0,0))
             draw = ImageDraw.Draw(frame)
 
-            title_len = self.font.getsize(self.current_title)[0]
+            title_len = self.font.getlength(self.current_title)
             if title_len > 31:
                 spacer = "   "
                 draw.text((34-self.title_animation_cnt, 0), self.current_title + spacer + self.current_title, self.title_color, font = self.font)
                 self.title_animation_cnt += 1
-                if self.title_animation_cnt == self.font.getsize(self.current_title + spacer)[0]:
+                if self.title_animation_cnt == self.font.getlength(self.current_title + spacer):
                     self.title_animation_cnt = 0
             else:
                 draw.text((34-self.title_animation_cnt, 0), self.current_title, self.title_color, font = self.font)
 
-            artist_len = self.font.getsize(self.current_artist)[0]
+            artist_len = self.font.getlength(self.current_artist)
             if artist_len > 31:
                 spacer = "     "
                 draw.text((34-self.artist_animation_cnt, 7), self.current_artist + spacer + self.current_artist, self.artist_color, font = self.font)
                 self.artist_animation_cnt += 1
-                if self.artist_animation_cnt == self.font.getsize(self.current_artist + spacer)[0]:
+                if self.artist_animation_cnt == self.font.getlength(self.current_artist + spacer):
                     self.artist_animation_cnt = 0
             else:
                 draw.text((34-self.artist_animation_cnt, 7), self.current_artist, self.artist_color, font = self.font)
             
-            album_len = self.font.getsize(self.current_album)[0]
+            album_len = self.font.getlength(self.current_album)
             if album_len > 31:
                 spacer = "     "
-                # draw.text((34-self.album_animation_cnt, 14), self.current_album + spacer + self.current_album, self.album_color, font = self.font)
+                draw.text((34-self.album_animation_cnt, 14), self.current_album + spacer + self.current_album, self.album_color, font = self.font)
                 self.album_animation_cnt += 1
-                if self.album_animation_cnt == self.font.getsize(self.current_album + spacer)[0]:
+                if self.album_animation_cnt == self.font.getlength(self.current_album + spacer):
                     self.album_animation_cnt = 0
             else:
                 pass
-                # draw.text((34-self.album_animation_cnt, 14), self.current_album, self.album_color, font = self.font)
+                draw.text((34-self.album_animation_cnt, 14), self.current_album, self.album_color, font = self.font)
 
             draw.rectangle((32,0,33,32), fill=(0,0,0))
 

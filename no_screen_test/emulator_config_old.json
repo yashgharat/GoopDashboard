@@ -1,10 +1,8 @@
 {
-    "pixel_outline": 0,
     "pixel_size": 16,
-    "pixel_style": "square",
+    "pixel_style": "circle",
     "display_adapter": "tkinter",
-    "suppress_font_warnings": true,
-    "suppress_adapter_load_errors": true,
+    "suppress_font_warnings": false,
     "browser": {
         "_comment": "For use with the browser adapter only.",
         "port": 8888,
@@ -13,6 +11,5 @@
         "quality": 70,
         "image_border": true,
         "debug_text": false
-    },
-    "log_level": "info"
+    }
 }
